@@ -1187,6 +1187,7 @@ section.hero-text h1 {
     /*border-bottom: 3px solid #57068c;*/
     color: var(--bkg-color);
     border-bottom: 3px solid var(--bkg-color);
+    /*border-bottom: 0px solid var(--bkg-color);*/
 }
 
 .cta-text {

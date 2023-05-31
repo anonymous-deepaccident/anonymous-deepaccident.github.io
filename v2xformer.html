@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DeepAccident - Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="http://webthemez.com" />
+<!-- css -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="css/jcarousel.css" rel="stylesheet" />
+<link href="css/flexslider.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+ 
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="wrapper">
+
+	<!-- start header -->
+		<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                  <a class="navbar-brand" href="index.html"><img alt="logo" src=
+					"img/logo-new.png" width="220" ></a>
+                </div>
+				<div class="navbar-collapse collapse ">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">About</a></li>
+						<li><a href="data.html">Data</a></li>
+						<li><a href="download.html">Download</a></li>
+						<li class="active"><a href="v2xformer.html">Model</a></li>
+					</ul>
+				</div>
+            </div>
+        </div>
+	</header><!-- end header -->
+<!--	<section id="inner-headline">-->
+<!--	<div class="container">-->
+<!--		<div class="row">-->
+<!--			<div class="col-lg-12">-->
+<!--				<h2 class="pageTitle">Sensor Setup and Data Collection</h2>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	</section>-->
+
+	<style>
+		#content img{
+			border: 0;
+			border-bottom: none;
+		}
+	</style>
+
+	<section id="content">
+<!--	<section class="hero-text">-->
+	<div class="container">
+
+		<div class="about">
+						
+			<div class="row"> 
+			<div class="col-md-12">
+			<div class="about-logo">
+				<h3>V2XFormer</span></h3>
+					<div class="center-img">
+                            <img width="1000" src="./img/model/v2xformer.png" alt="A description of your image" style="text-decoration: none;">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Network details of the proposed V2XFormer.</b>  We use the three-V2X-agent setting consisting of ego AV, AV, and Infra for
+						illustration. V2X agents in V2XFormer utilize a shared-weight BEV extractor to extract BEV features based on multi-view camera
+						observation history within the previous N frames. These features are spatially wrapped and aligned with the BEV features from the ego
+						vehicle before being concatenated along the channel dimension. For the V2X fusion part, here we utilize a simple yet effective average
+						pooling over channel dimension to generate the aggregated BEV feature, which is then fed into different task heads to get prediction results.
+<!--						<li><b>Designed accident scenarios:</b>-->
+<!--							<ul>-->
+<!--								<li> A - scenarios at signalized intersections: <br>(1) running against a red light at four-way intersections, (2) left turn against a red light at four-way intersections, (3) unprotected left turn at four-way intersections,-->
+<!--									(4) right turn against left turn at four-way intersections, (5) right turn against left turn at three-way intersections, (6) go straight against right turn at three-way intersections,</li>-->
+<!--								<li>B: Similar to A, but at unsignalized intersections</li>-->
+<!--							</ul>-->
+<!--						</li>-->
+					</ul>
+				<hr>
+
+				<h3>Experiment</span></h3>
+					<div class="center-img">
+                            <img width="600" src="./img/model/overall_performance.png" alt="A description of your image" style="text-decoration: none;">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Performance comparison between the single-vehicle model and V2XFormer with different V2X configurations.</b>
+						We can see that V2XFormer with different V2X configurations significantly outperform the single-vehicle baseline in all three tasks.
+						In addition, V2X-infra yields the best motion prediction performance compared to other 2-agent configurations due to the broad visibility provided
+						by the infrastructure’s relatively high sensor mounting position.
+						Moreover, gradual incorporation of more V2X agents for communication can lead to gradual improvement in performance across all tasks.
+					</ul>
+				   <hr>
+
+					<div class="center-img">
+                            <img width="600" src="./img/model/performance_ttc.png" alt="A description of your image">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Performance on motion mIoU and accident prediction accuracy (APA) at different Time-To-Collision (TTC).</b>
+						The V2X models outperform the singlevehicle model for motion and accident prediction, especially when TTC is shorter. However, for the 2s TTC data, the accident prediction task is
+						challenging for all models, with the V2X-5agents model even performing worse than the single-vehicle model.
+					</ul>
+					<hr>
+
+					<div class="center-img">
+                            <img width="600" src="./img/model/performance_visibility.png" alt="A description of your image">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Performance on motion mIoU and accident prediction accuracy (APA) v.s. accident visibility.</b>
+						We divide the evaluation data based on accident vehicle/pedestrian visibility from the ego vehicle side and
+						define  a sample with over half of its observation frames having invisible accident vehicles as an invisible sample for accidents.
+						The performance gap between V2X models and the single-vehicle model is significantly larger when there is limited accident visibility from the ego
+						vehicle side, on both motion prediction and accident prediction tasks.
+					</ul>
+					<hr>
+
+					<div class="center-img">
+                            <img width="400" src="./img/model/performance_longer_future.png" alt="A description of your image">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Performance with longer prediction horizons at different Time-To-Collision (TTC) for accident prediction accuracy (APA).</b>
+							We choose the single-vehicle model as the baseline and conduct experiments on predicting longer future motion.
+							The model that predicts longer future motion achieves worse accident prediction accuracy compared to the model with a shorter prediction horizon.
+							However, models with longer prediction horizons can predict accident this earlier due to their design.
+							These results suggest a trade-off between predicting longer future horizons and achieving satisfactory overall performance.
+					</ul>
+					<hr>
+
+					<div class="center-img">
+                            <img width="400" src="./img/model/performance_sim2real.png" alt="A description of your image">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Sim2real experiment on motion prediction (VPQ) and 3D object detection (mAP).</b>
+						For the single-vehicle model trained on DeepAccident, we fine-tune it for five epochs on nuScenes and compare it with the original BEVerse-tiny model that is only trained on nuScenes for both motion prediction and 3D object detection tasks.
+						The model trained with both datasets achieves 1.9 higher mAP and 0.8 higher VPQ on the nuScenes validation dataset,
+						which demonstrates the usefulness of our proposed DeepAccident dataset for real-world scenarios.
+					</ul>
+					<hr>
+
+				<h3>Qualitative results</span></h3>
+					<div class="center-img">
+                            <img width="1000" src="./img/model/quali1.png" alt="A description of your image" style="text-decoration: none;">
+                    </div>
+					<ul style="font-size:16px">
+						<b>Qualitative comparison between the single-vehicle model and the V2X-5agents model on 3D object detection and motion prediction tasks.</b>
+						The red circles on motion figures indicate the front right area behind a wall with occlusion. The single-vehicle model failed to predict objects and their motions in that area while the V2X-5agents model succeeded.
+						This demonstrates the enhanced prediction and perception capabilities of the V2X models over the single-vehicle baseline.
+					</ul>
+				<hr>
+					<div class="center-img">
+                            <img width="1000" src="./img/model/quali2.png" alt="A description of your image" style="text-decoration: none;">
+                    </div>
+					<ul style="font-size:16px">
+						<b>More qualitative results of the single-vehicle model and the V2X-5agents model across various scenarios.</b>
+						The areas marked by red circles indicate the accidents happening places.
+						The V2X-5agents model shows superiority over the single-vehicle model for both motion and accident prediction.
+
+					</ul>
+
+
+			</div> 
+			</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script> 
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
